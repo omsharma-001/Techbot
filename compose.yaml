@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  fastapi:
+    build: .
+    ports:
+      - "8000:8000"
+    depends_on:
+      - ollama
+
+  ollama:
+    image: ollama/ollama
+    environment:
+      - MODEL=llama3
+    ports:
+      - "11434:11434"
